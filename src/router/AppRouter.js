@@ -6,6 +6,7 @@ import {
     Route,
     Redirect,
 } from "react-router-dom";
+import { Create } from '../components/Create';
 
 import { Inicio } from '../components/Inicio';
 import { Navbar } from '../components/Navbar';
@@ -21,7 +22,7 @@ export const AppRouter = () => {
                 <Switch>
                     <Route exact path="/" component={Inicio} />
                     <Route exact path="/show/:id" component={Show} />
-
+                    <Route exact path="/create" component={Create} />
                     <Redirect to="/" />
                 </Switch>
             </div>
