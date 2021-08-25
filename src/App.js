@@ -1,14 +1,14 @@
 import React from 'react'
-import { Inicio } from './components/Inicio'
+import { AppRouter } from './router/AppRouter'
 import './css/main.css'
 
 export const App = () => {
 
     return (
-        <div className="container-fluid mt-5">
-            <h1 className="text-center text-muted">GRUPO NACH</h1>
-            <Inicio />
-        </div>
+        <>
+            <AppRouter />
+            <div className="m-2 p-1 bg-light fixed-bottom text-center text-muted"><b>GRUPO NACH</b></div>
+        </>
     )
 }
 
