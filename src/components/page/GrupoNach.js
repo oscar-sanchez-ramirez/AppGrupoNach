@@ -69,15 +69,7 @@ export const GrupoNach = () => {
                 }
             </div>
             <div className="row">
-                <CuerpoNach id={siguiente} />
-                <div className="col-md-2">
-                    <button
-                        className="btn btn-sm btn-outline-success mt-2"
-                        onClick={handleSiguiente}
-                    >
-                        Siguiente <i className="fas fa-arrow-right"></i>
-                    </button>
-                </div>
+                <CuerpoNach id={siguiente} siguienteF={handleSiguiente} />
             </div>
         </div>
     )

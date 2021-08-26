@@ -3,7 +3,7 @@ import { useFetch } from '../../hooks/useFetch'
 import { motion } from 'framer-motion'
 
 
-export const CuerpoNach = ({ id }) => {
+export const CuerpoNach = ({ id, siguienteF }) => {
 
     const baseURL = process.env.REACT_APP_API_URL;
     const { data } = useFetch(`${baseURL}/steps/${id}`);
@@ -24,18 +24,26 @@ export const CuerpoNach = ({ id }) => {
                 {!!data &&
                     (
                         <div>
-                            <h1 className="text-start"><b>| {data.descripcion}</b></h1>
+                            <h2 className="text-start"><b>| {data.descripcion}</b></h2>
                             <div className="card shadow-sm">
                                 <div className="card-body p-0 m-0">
                                     <img className="img-fluid" src={data.imagenTitulo} alt={data.autor} height="400" />
                                     <p className="text-start p-2">{data.descripcionLarga}</p>
+                                </div>
+                                <div className="p-4">
+                                    <button
+                                        className="btn btn-sm btn-outline-success mt-2"
+                                        onClick={siguienteF}
+                                    >
+                                        Siguiente <i className="fas fa-arrow-right"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     )
                 }
             </motion.div>
-            <div className="col-md-2 text-center">
+            <div className="col-md-3 text-center">
             </div>
 
             <div className="col-md-4 text-center">
@@ -58,11 +66,11 @@ export const CuerpoNach = ({ id }) => {
                 {
                     !!datos &&
                     (
-                        datos.map( (item, index) => (
+                        datos.map((item, index) => (
                             <div className="row" key={item.id}>
                                 <div className="col-md-12">
                                     <div className="card mt-2 shadow-sm">
-                                       <p className="text-center"> {datos[index].servicio}</p>
+                                        <p className="text-center"> {datos[index].servicio}</p>
                                     </div>
                                 </div>
                             </div>
@@ -70,6 +78,10 @@ export const CuerpoNach = ({ id }) => {
 
                     )
                 }
+                <p className="text-end mt-5 m-0 p-0"><small>Fuentes: www.reclutamientoenlinea.com</small></p>
+                <p className="text-end m-0 p-0"><small>www.blablabla.com.mx</small></p>
+                <p className="text-end m-0 p-0"><small>Por Maneli Cornejo</small></p>
+
             </div>
         </>
 
