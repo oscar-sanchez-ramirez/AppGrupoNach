@@ -66,7 +66,7 @@ export const Create = ({history}) => {
 
             try {
 
-                const res = await axios.post(baseURL, f, { headers: { "Content-Type": "multipart/form-data" } })
+                const res = await axios.post(`${baseURL}/registros`, f, { headers: { "Content-Type": "multipart/form-data" } })
                 const info = await res.data;
                 console.log(info);
                 if (info) {

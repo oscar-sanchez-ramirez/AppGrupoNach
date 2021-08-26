@@ -16,7 +16,7 @@ export const Show = () => {
     const { id } = useParams();
 
     const baseURL = process.env.REACT_APP_API_URL;
-    const { data } = useFetch(`${baseURL}/${id}`);
+    const { data } = useFetch(`${baseURL}/registros/${id}`);
 
 
 
@@ -35,7 +35,7 @@ export const Show = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                axios.delete(`${baseURL}/${id}`);
+                axios.delete(`${baseURL}/registros/${id}`);
                 Swal.fire({
                     html: 'Eliminando...',
                     timer: 2000,

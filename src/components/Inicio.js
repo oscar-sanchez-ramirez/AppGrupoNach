@@ -18,7 +18,7 @@ export const Inicio = ({history}) => {
     }
 
     const baseURL = process.env.REACT_APP_API_URL;
-    const { data } = useFetch(`${baseURL}?buscar=${search}`);
+    const { data } = useFetch(`${baseURL}/registros?buscar=${search}`);
     const registros = !!data && data.data;
 
     return (

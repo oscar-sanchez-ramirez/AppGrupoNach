@@ -7,7 +7,7 @@ export const App = () => {
     return (
         <>
             <AppRouter />
-            <div className="m-2 p-1 bg-light fixed-bottom text-center text-muted"><b>GRUPO NACH</b></div>
+            <div className="m-0 p-3 bg-dark fixed-bottom text-center text-muted"></div>
         </>
     )
 }
