@@ -7,10 +7,10 @@ export const CuerpoNach = ({ id, siguienteF }) => {
 
     const baseURL = process.env.REACT_APP_API_URL;
     const { data } = useFetch(`${baseURL}/steps/${id}`);
-    // console.log(!!data && data);
+    console.log(!!data && data);
 
     const { data: datos } = useFetch(`${baseURL}/listar`);
-    // console.log(!!datos && datos);
+    console.log(!!datos && datos);
 
 
     return (
