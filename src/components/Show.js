@@ -36,18 +36,12 @@ export const Show = () => {
             if (result.isConfirmed) {
 
                 axios.delete(`${baseURL}/${id}`);
-                let timerInterval
                 Swal.fire({
-                    title: 'Auto close alert!',
-                    html: 'I will close in <b></b> milliseconds.',
+                    html: 'Eliminando...',
                     timer: 2000,
                     timerProgressBar: true,
                     didOpen: () => {
                         Swal.showLoading()
-                        const b = Swal.getHtmlContainer().querySelector('b')
-                        timerInterval = setInterval(() => {
-                            b.textContent = Swal.getTimerLeft()
-                        }, 100)
                     },
                     
                 }).then((result) => {
@@ -56,7 +50,7 @@ export const Show = () => {
                     }
                 })
                 setTimeout(() => {
-                    window.location.replace("/");
+                    window.location.replace("/home");
                 }, 1000)
             }
         })
