@@ -10,7 +10,7 @@ export const Registros = ({ id, name, email, area }) => {
 
     return (
         <motion.div
-            className="card shadow"
+            className="card shadow mb-4"
             initial={{ y: 100, opacity: 0.2 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ type: 'spring', stiffness: 100 }}

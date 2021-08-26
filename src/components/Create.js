@@ -2,12 +2,16 @@ import React, { useState } from 'react'
 import { useForm } from '../hooks/useForm'
 import axios from 'axios';
 
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
-export const Create = ({ history }) => {
+
+export const Create = ({history}) => {
 
     const baseURL = process.env.REACT_APP_API_URL;
+    const MySwal = withReactContent(Swal)
 
-    const [values, handleInputChange] = useForm({
+    const [values, handleInputChange, handleReset] = useForm({
         name: '',
         email: '',
         address: '',
@@ -66,10 +70,38 @@ export const Create = ({ history }) => {
                 const info = await res.data;
                 console.log(info);
                 if (info) {
-                    history.push('/');
+                    handleReset();
+                    MySwal.fire({
+                        didOpen: () => {
+                            MySwal.clickConfirm()
+                        }
+                    }).then(() => {
+                        return MySwal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Se guardo con éxito',
+                            showConfirmButton: false,
+                            timerProgressBar: true,
+                            timer: 1500
+                        })
+                    })
                 }
             } catch (error) {
                 console.log(error);
+                MySwal.fire({
+                    didOpen: () => {
+                        MySwal.clickConfirm()
+                    }
+                }).then(() => {
+                    return MySwal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: 'El correo ya fue registrado',
+                        showConfirmButton: false,
+                        timerProgressBar: true,
+                        timer: 1500
+                    })
+                })
             }
 
         }
@@ -83,7 +115,7 @@ export const Create = ({ history }) => {
         <div className="container">
             <div className="row justify-content-center">
                 <div className="col-md-6 mt-5">
-                    <div className="card shadow">
+                    <div className="card shadow mb-5">
                         <div className="card-body">
                             <form onSubmit={handleSubmit}>
                                 <label htmlFor="name" className="form-label">Nombre</label>
