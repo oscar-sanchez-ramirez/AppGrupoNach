@@ -5,7 +5,7 @@ import { Loading } from './Loading';
 import { Registros } from './Registros'
 
 
-export const Inicio = () => {
+export const Inicio = ({history}) => {
 
     const [search, setSearch] = useState('');
 
@@ -13,14 +13,22 @@ export const Inicio = () => {
         setSearch(e.target.value);
     }
 
+    const changeHistory = () => {
+          history.push('/create');
+    }
+
     const baseURL = process.env.REACT_APP_API_URL;
     const { data } = useFetch(`${baseURL}?buscar=${search}`);
     const registros = !!data && data.data;
-    // console.log(data)
 
     return (
         <div className="container">
             <div className="row mt-5">
+                <div className="col-md-4 mb-4">
+                    <button onClick={changeHistory} className="btn btn-outline-success"><i className="fas fa-plus"></i> Nuevo registro</button>
+                </div>
+                <div className="col-md-4">
+                </div>
                 <div className="col-md-4">
                     <input
                         type="search"
